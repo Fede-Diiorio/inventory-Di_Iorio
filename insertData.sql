@@ -1,0 +1,38 @@
+INSERT INTO categories (name) VALUES
+('Electrodomésticos'),
+('Audio y Sonido'),
+('Periféricos'),
+('Monitores'),
+('Muebles de Oficina'),
+('Tecnología Wearable'),
+('Almacenamiento'),
+('Accesorios de Viaje'),
+('Iluminación'),
+('Cámaras y Fotografía'),
+('Redes y Conectividad'),
+('Impresión'),
+('Producción Musical'),
+('Cargadores y Energía');
+
+INSERT INTO products (name, description, price, stock, category_id) VALUES
+('Cafetera Express', 'Cafetera automática con espumador de leche', 199.99, 10, 1),
+('Auriculares Bluetooth', 'Auriculares inalámbricos con cancelación de ruido', 89.99, 25, 2),
+('Teclado Mecánico', 'Teclado mecánico RGB con switches rojos', 79.50, 15, 3),
+('Monitor 24"', 'Monitor LED Full HD de 24 pulgadas', 159.99, 8, 4),
+('Silla Gamer', 'Silla ergonómica para gaming con reposabrazos ajustables', 249.00, 5, 5),
+('Smartwatch', 'Reloj inteligente con monitor de actividad física', 129.99, 20, 6),
+('Disco SSD 1TB', 'Unidad de estado sólido de 1TB NVMe', 119.50, 12, 7),
+('Mochila Antirrobo', 'Mochila impermeable con puerto USB', 45.99, 18, 8),
+('Lámpara LED Escritorio', 'Lámpara LED regulable con carga inalámbrica', 39.90, 22, 9),
+('Mouse Inalámbrico', 'Mouse ergonómico con sensor óptico de alta precisión', 29.99, 30, 3),
+('Cámara Web HD', 'Cámara web 1080p con micrófono integrado', 59.99, 10, 10),
+('Parlante Bluetooth', 'Altavoz portátil con sonido envolvente', 55.00, 14, 2),
+('Tablet 10"', 'Tableta Android de 10 pulgadas con 64GB de almacenamiento', 199.00, 7, 6),
+('Router WiFi 6', 'Router de última generación con alta velocidad y cobertura', 89.99, 9, 11),
+('Impresora Multifunción', 'Impresora 3 en 1 (escáner, copiadora, impresora)', 179.00, 6, 12),
+('Ventilador USB', 'Mini ventilador portátil con carga USB', 12.99, 35, 9),
+('Power Bank 20000mAh', 'Batería externa de alta capacidad con carga rápida', 39.99, 17, 8),
+('Alfombrilla Gaming', 'Mousepad XL con base antideslizante', 19.50, 40, 3),
+('Controlador MIDI', 'Controlador de audio para producción musical', 249.99, 3, 13),
+('Cargador Inalámbrico', 'Cargador Qi compatible con dispositivos iOS y Android', 25.99, 28, 14);
+
