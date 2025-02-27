@@ -43,7 +43,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Soporte para Monitor', 'Base ajustable para monitor con espacio de almacenamiento', 35.99, 20, 5);
 
 INSERT INTO clients (name, email, phone) VALUES
-('Juan Pérez', 'juan.perez@email.com', '1122334455'),
+('Federico Di Iorio', 'fede.diiorio@email.com', '1122334455'),
 ('María González', 'maria.gonzalez@email.com', '1144556677'),
 ('Carlos Rodríguez', 'carlos.rodriguez@email.com', '1166778899'),
 ('Ana Fernández', 'ana.fernandez@email.com', '1188990011'),
