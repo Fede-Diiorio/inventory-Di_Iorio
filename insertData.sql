@@ -36,3 +36,49 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Controlador MIDI', 'Controlador de audio para producción musical', 249.99, 3, 13),
 ('Cargador Inalámbrico', 'Cargador Qi compatible con dispositivos iOS y Android', 25.99, 28, 14);
 
+INSERT INTO clients (name, email, phone) VALUES
+('Juan Pérez', 'juan.perez@email.com', '1122334455'),
+('María González', 'maria.gonzalez@email.com', '1144556677'),
+('Carlos Rodríguez', 'carlos.rodriguez@email.com', '1166778899'),
+('Ana Fernández', 'ana.fernandez@email.com', '1188990011'),
+('Diego López', 'diego.lopez@email.com', '1122446688'),
+('Laura Martínez', 'laura.martinez@email.com', '1133557799'),
+('Pedro Sánchez', 'pedro.sanchez@email.com', '1155667788'),
+('Sofía Ramírez', 'sofia.ramirez@email.com', '1177889900'),
+('Martín Herrera', 'martin.herrera@email.com', '1199001122'),
+('Gabriela Castro', 'gabriela.castro@email.com', '1100112233'),
+('Ricardo Vargas', 'ricardo.vargas@email.com', '1122113344'),
+('Elena Duarte', 'elena.duarte@email.com', '1133224455'),
+('Roberto Molina', 'roberto.molina@email.com', '1144335566'),
+('Patricia Guzmán', 'patricia.guzman@email.com', '1155446677'),
+('Fernando Ríos', 'fernando.rios@email.com', '1166557788');
+
+INSERT INTO sales (client_id) VALUES 
+(1), (2), (3), (4), (5), (6), (7), (8), (9), (10),
+(11), (12), (13), (14), (15), (1), (2), (3), (1), (14);
+
+INSERT INTO sales_detail (sale_id, product_id, quantity) VALUES
+(1, 3, 2), (1, 5, 1), (1,  8, 3),
+(2, 1, 1), (2, 7, 2),
+(3, 2, 1), (3, 9, 4), 
+(3, 10, 2), (4, 4, 2),
+(5, 6, 3), (5, 8, 1),
+(6, 2, 2), (6, 7, 1),
+(7, 5, 3), (7, 10, 2),
+(8, 3, 1), (8, 6, 1),
+(9, 1, 2), (9, 4, 3), (9, 9, 2), 
+(10, 2, 1), (10, 8, 2), 
+(11, 5, 1), (11, 6, 2), 
+(12, 3, 3),
+(13, 1, 1), (13, 7, 2),
+(14, 4, 1), (14, 8, 1),
+(15, 2, 3), (15, 9, 1),
+(16, 5, 2), (16, 10, 1),
+(17, 1, 3), (17, 6, 2),
+(18, 2, 1), (18, 7, 1),
+(19, 4, 2), (19, 8, 3),
+(20, 3, 2), (20, 9, 1);
+
+
+
+
