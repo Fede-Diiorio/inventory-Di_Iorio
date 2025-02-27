@@ -16,5 +16,5 @@ SELECT
     p.stock,
     c.name AS category
 FROM products AS p
-INNER JOIN categories AS c ON (c.id = p.id)
+INNER JOIN categories AS c ON (c.id = p.category_id)
 ORDER BY id;
