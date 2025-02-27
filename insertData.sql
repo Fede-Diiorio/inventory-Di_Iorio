@@ -12,7 +12,8 @@ INSERT INTO categories (name) VALUES
 ('Redes y Conectividad'),
 ('Impresión'),
 ('Producción Musical'),
-('Cargadores y Energía');
+('Cargadores y Energía'),
+('Consolas y Videojuegos');
 
 INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Cafetera Express', 'Cafetera automática con espumador de leche', 199.99, 10, 1),
@@ -34,7 +35,12 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Power Bank 20000mAh', 'Batería externa de alta capacidad con carga rápida', 39.99, 17, 8),
 ('Alfombrilla Gaming', 'Mousepad XL con base antideslizante', 19.50, 40, 3),
 ('Controlador MIDI', 'Controlador de audio para producción musical', 249.99, 3, 13),
-('Cargador Inalámbrico', 'Cargador Qi compatible con dispositivos iOS y Android', 25.99, 28, 14);
+('Cargador Inalámbrico', 'Cargador Qi compatible con dispositivos iOS y Android', 25.99, 28, 14),
+('Consola de Videojuegos', 'Consola de última generación con gráficos en 4K', 499.99, 10, 15),
+('Control Inalámbrico', 'Mando inalámbrico con vibración y gatillos adaptativos', 69.99, 25, 15),
+('Tarjeta de Memoria 256GB', 'Memoria microSD con alta velocidad de lectura', 49.99, 30, 7),
+('Lentes de Realidad Virtual', 'Gafas VR compatibles con PC y consolas', 299.99, 5, 15),
+('Soporte para Monitor', 'Base ajustable para monitor con espacio de almacenamiento', 35.99, 20, 5);
 
 INSERT INTO clients (name, email, phone) VALUES
 ('Juan Pérez', 'juan.perez@email.com', '1122334455'),

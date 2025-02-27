@@ -34,7 +34,13 @@ INNER JOIN products AS p on (sd.product_id = p.id)
 GROUP BY s.id, s.date, s.client_id
 ORDER BY s.id;
 
-
-
-
-    
+CREATE OR REPLACE VIEW view_sales_detail AS
+SELECT 
+	sd.sale_id,
+    p.name,
+    p.price AS unit_price,
+    sd.quantity,
+    sd.quantity * p.price AS subtotal
+FROM sales_detail AS sd
+INNER JOIN products AS p ON (p.id = sd.product_id)
+ORDER BY sd.sale_id;    
