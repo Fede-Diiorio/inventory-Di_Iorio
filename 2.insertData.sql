@@ -1,3 +1,5 @@
+USE coder_inventory;
+
 INSERT INTO categories (name) VALUES
 ('Electrodomésticos'),
 ('Audio y Sonido'),

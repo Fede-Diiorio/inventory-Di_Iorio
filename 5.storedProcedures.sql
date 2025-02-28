@@ -1,3 +1,5 @@
+USE coder_inventory;
+
 DELIMITER $$
 
 CREATE PROCEDURE sp_discount_stock(IN p_quantity INT, IN p_product_id INT)
