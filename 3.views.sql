@@ -1,13 +1,13 @@
 USE coder_inventory;
 
-CREATE OR REPLACE VIEW view_categoires AS
+CREATE OR REPLACE VIEW vw_categories AS
 SELECT
 	id,
     name
 FROM categories
 ORDER BY id;
 
-CREATE OR REPLACE VIEW view_products AS 
+CREATE OR REPLACE VIEW vw_products AS 
 SELECT
 	p.id,
     p.name,
@@ -19,7 +19,7 @@ FROM products AS p
 INNER JOIN categories AS c ON (c.id = p.category_id)
 ORDER BY id;
 
-CREATE OR REPLACE VIEW view_sales AS 
+CREATE OR REPLACE VIEW vw_sales AS 
 SELECT 
 	s.id,
     s.date,
@@ -34,7 +34,7 @@ INNER JOIN products AS p on (sd.product_id = p.id)
 GROUP BY s.id, s.date, s.client_id
 ORDER BY s.id;
 
-CREATE OR REPLACE VIEW view_sales_detail AS
+CREATE OR REPLACE VIEW vw_sales_detail AS
 SELECT 
 	sd.sale_id,
     p.name,
