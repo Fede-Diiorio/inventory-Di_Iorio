@@ -1,4 +1,6 @@
-# inventory-Di_Iorio
+# Getión de ventas e inventario | SQL
+
+## Descripción
 
 Este esquema de base de datos, **`coder_inventory`**, está diseñado para gestionar un inventario de productos y su proceso de venta, permitiendo un control eficiente sobre las categorías de productos, clientes, ventas y el detalle de cada transacción.
 
@@ -35,4 +37,67 @@ Este esquema permite:
 - No se pueden eliminar productos si están registrados en ventas (`ON DELETE RESTRICT`).
 - Si se elimina una venta, los detalles de la venta también se eliminan (`ON DELETE CASCADE`).
 
-En conjunto, este esquema garantiza un sistema estructurado y confiable para la gestión de inventario y ventas. 🚀
+En conjunto, este esquema garantiza un sistema estructurado y confiable para la gestión de inventario y ventas.
+
+## Diagrama Entidad-Relación (ERD)
+
+El Diagrama Entidad-Relación (ERD) del proyecto te permitirá entender la estructura de la base de datos. Para visualizarlo:
+
+1. Descarga o clona este repositorio en tu máquina local.
+2. Abre el archivo del diagrama en [draw.io](https://app.diagrams.net/).
+3. Selecciona la opción **Dispositivo** y luego **Abrir diagrama existente**.
+4. Busca el archivo [InventoryCoder.drawio](https://github.com/Fede-Diiorio/inventory-Di_Iorio/blob/main/InventoryCoder.drawio) en el lugar donde lo descargaste.
+
+> **Nota:** Puedes modificar o personalizar el diagrama según tus necesidades.
+
+## Requisitos
+
+- Tener instalado un gestor de bases de datos compatible con SQL (como **MySQL Workbench**).
+- Acceso a [draw.io](https://app.diagrams.net/) para visualizar el diagrama.
+
+## Informe Escrito
+
+Puedes encontrar más información sobre el proyecto y las tablas accediendo al siguiente [informe](https://drive.google.com/drive/folders/1_FXr0p23qJe0TTHnM2dv4ceZHdLg6HxG).
+
+## Instalación y Uso
+
+Sigue estos pasos para cargar y utilizar la base de datos:
+
+1. Clona este repositorio en tu máquina local:
+
+   ```bash
+   git clone https://github.com/Fede-Diiorio/inventory-Di_Iorio.git
+   ```
+
+2. Abre tu gestor de bases de datos (por ejemplo, **MySQL Workbench**) y carga el archivo `1.schema.sql` para crear la base de datos y todas las tablas necesarias.
+
+3. Creado el esquema podras ejeuctar la inserción de datos ejecutando el archivo `2.insertData.sql`.
+
+4. Luego puedes correr el archivo `3.views.sql` para crear las vistas, lo que va a facilitar la visualización de la información cargada a la base de datos.
+
+5. Una vez hecho todo esto, deberás ejecutar el script `4.functions.sql` para crear un par de funciones útiles para la gentión de datos.
+
+6. Finalmente, crearás los procedimientos almacenados, ejecutando `5.storedProcedures.sql` para completar de cargar todas las funcionalidades del esquema.
+
+> **Importante:** Los bloques de datos deben ejecutarse en el orden acorde al número al principio de cada archivo para evitar errores de dependencia en la base de datos.
+
+## Ejemplos de uso
+
+El lineas generales solo necesitarás conocimientos básicos de SQL para ejecutar la mayoría de las tareas. No obstante si debes tener en cuenta como la base de datos genera una nueva venta.
+
+    ```sql
+    CALL sp_create_sale(2, @saleId); -- Generar nueva vanta
+    SELECT @saleId; -- Seleccionar el ID de la última venta creada
+    CALL sp_process_sale(@saleId, 3, 2); -- Cargar productos a la venta (venta_id, producto_id, cantidad)
+    ```
+
+Puedes guiarte usando ese código para crear nuevas ventas. En caso que necesites agregar más productos a la venta simplemente tendrás que hacer una nueva llamada a `sp_process_sale`.
+
+    ```sql
+    CALL sp_create_sale(1, @saleId);
+    SELECT @saleId;
+    CALL sp_process_sale(@saleId, 4, 2);
+    CALL sp_process_sale(@saleId, 1, 3);
+    ```
+
+Por último encontrarás un archivo `6.examples.sql` en el que tendrás un ejemplo de como debes realizar la llamada de cada uno de los objetos creados en el esquema.
