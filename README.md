@@ -70,14 +70,11 @@ Sigue estos pasos para cargar y utilizar la base de datos:
    ```
 
 2. Abre tu gestor de bases de datos (por ejemplo, **MySQL Workbench**) y carga el archivo `1.schema.sql` para crear la base de datos y todas las tablas necesarias.
-
-3. Creado el esquema podras ejeuctar la inserción de datos ejecutando el archivo `2.insertData.sql`.
-
-4. Luego puedes correr el archivo `3.views.sql` para crear las vistas, lo que va a facilitar la visualización de la información cargada a la base de datos.
-
-5. Una vez hecho todo esto, deberás ejecutar el script `4.functions.sql` para crear un par de funciones útiles para la gentión de datos.
-
-6. Finalmente, crearás los procedimientos almacenados, ejecutando `5.storedProcedures.sql` para completar de cargar todas las funcionalidades del esquema.
+3. Luego puedes correr el archivo `2.views.sql` para crear las vistas, lo que va a facilitar la visualización de la información cargada a la base de datos.
+4. Una vez hecho todo esto, deberás ejecutar el script `3.functions.sql` para crear un par de funciones útiles para la gentión de datos.
+5. Luego, crearás los procedimientos almacenados, ejecutando `4.storedProcedures.sql`.
+6. Agrega los triggers ejecutando el archivo `5.triggers.sql` para poder completar la configuración de la base de datos antes de insertar los datos.
+7. Por último con todo configurado, podras ejeuctar la inserción de datos ejecutando el archivo `6.insertData.sql`.
 
 > **Importante:** Los bloques de datos deben ejecutarse en el orden acorde al número al principio de cada archivo para evitar errores de dependencia en la base de datos.
 
