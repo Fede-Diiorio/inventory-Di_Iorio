@@ -57,7 +57,8 @@ INSERT INTO clients (name, email, phone) VALUES
 ('Elena Duarte', 'elena.duarte@email.com', '1133224455'),
 ('Roberto Molina', 'roberto.molina@email.com', '1144335566'),
 ('Patricia Guzmán', 'patricia.guzman@email.com', '1155446677'),
-('Fernando Ríos', 'fernando.rios@email.com', '1166557788');
+('Fernando Ríos', 'fernando.rios@email.com', '1166557788'),
+('Carlos Carloni', 'carlosenllamas@email.com', '1222334455');
 
 INSERT INTO sales (client_id) VALUES 
 (1), (2), (3), (4), (5), (6), (7), (8), (9), (10),

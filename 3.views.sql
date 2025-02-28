@@ -44,3 +44,17 @@ SELECT
 FROM sales_detail AS sd
 INNER JOIN products AS p ON (p.id = sd.product_id)
 ORDER BY sd.sale_id;    
+
+CREATE OR REPLACE VIEW vw_clients AS
+SELECT 
+	c.id,
+    c.name,
+    c.email,
+    c.phone,
+    COUNT(s.id) AS total_purchases,
+    COALESCE(SUM(sd.quantity), 0) AS purchased_products
+FROM clients AS c
+LEFT JOIN sales AS s ON (c.id = s.client_id)
+LEFT JOIN sales_detail AS sd ON (s.id = sd.sale_id)
+GROUP BY c.id;
+    
