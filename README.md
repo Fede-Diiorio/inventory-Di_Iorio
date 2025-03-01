@@ -97,4 +97,4 @@ Puedes guiarte usando ese código para crear nuevas ventas. En caso que necesite
     CALL sp_process_sale(@saleId, 1, 3);
     ```
 
-Por último encontrarás un archivo `6.examples.sql` en el que tendrás un ejemplo de como debes realizar la llamada de cada uno de los objetos creados en el esquema.
+Si tienes más dudas, encontrarás un archivo `examples.sql` en el que tendrás un ejemplo de como debes realizar la llamada de cada uno de los objetos creados en el esquema.
