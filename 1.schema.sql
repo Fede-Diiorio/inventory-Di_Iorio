@@ -42,3 +42,13 @@ CREATE TABLE IF NOT EXISTS sales_detail (
     CONSTRAINT fk_sales_detail_sale FOREIGN KEY (sale_id) REFERENCES sales (id) ON DELETE CASCADE,
     CONSTRAINT fk_sales_detail_product FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE RESTRICT
 );
+
+CREATE TABLE IF NOT EXISTS auditory (
+	id INT AUTO_INCREMENT,
+    action_name VARCHAR (10) NOT NULL,
+    table_name VARCHAR (50) NOT NULL,
+    newfile_oldfile VARCHAR (200),
+    user VARCHAR (60) NOT NULL,
+    action_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT pk_auditory PRIMARY KEY (id)
+);
