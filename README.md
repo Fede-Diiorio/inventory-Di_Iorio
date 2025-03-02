@@ -57,7 +57,7 @@ El Diagrama Entidad-Relación (ERD) del proyecto te permitirá entender la estru
 
 ## Informe Escrito
 
-Puedes encontrar más información sobre el proyecto y las tablas accediendo al siguiente [informe](https://drive.google.com/drive/folders/1_FXr0p23qJe0TTHnM2dv4ceZHdLg6HxG).
+Puedes encontrar más información sobre el proyecto y las tablas accediendo al siguiente [informe](https://drive.google.com/file/d/1rTDs8yyLNltXdM5anJH5yGsNwmHJAMUq/view?usp=drive_link).
 
 ## Instalación y Uso
 
