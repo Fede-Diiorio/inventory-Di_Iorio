@@ -82,19 +82,15 @@ Sigue estos pasos para cargar y utilizar la base de datos:
 
 El lineas generales solo necesitarás conocimientos básicos de SQL para ejecutar la mayoría de las tareas. No obstante si debes tener en cuenta como la base de datos genera una nueva venta.
 
-    ```sql
     CALL sp_create_sale(2, @saleId); -- Generar nueva vanta
     SELECT @saleId; -- Seleccionar el ID de la última venta creada
     CALL sp_process_sale(@saleId, 3, 2); -- Cargar productos a la venta (venta_id, producto_id, cantidad)
-    ```
 
 Puedes guiarte usando ese código para crear nuevas ventas. En caso que necesites agregar más productos a la venta simplemente tendrás que hacer una nueva llamada a `sp_process_sale`.
 
-    ```sql
     CALL sp_create_sale(1, @saleId);
     SELECT @saleId;
     CALL sp_process_sale(@saleId, 4, 2);
     CALL sp_process_sale(@saleId, 1, 3);
-    ```
 
 Si tienes más dudas, encontrarás un archivo `examples.sql` en el que tendrás un ejemplo de como debes realizar la llamada de cada uno de los objetos creados en el esquema.
