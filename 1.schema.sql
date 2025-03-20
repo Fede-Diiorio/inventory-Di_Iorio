@@ -50,13 +50,13 @@ CREATE TABLE IF NOT EXISTS orders (
     CONSTRAINT pk_order PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS orders_product (
+CREATE TABLE IF NOT EXISTS orders_detail (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL DEFAULT 1 CHECK (quantity >=1 ),
-    CONSTRAINT pk_orders_product PRIMARY KEY (order_id, product_id),
-    CONSTRAINT fk_orders_product_order FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
-    CONSTRAINT fk_orders_product_product FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE RESTRICT
+    CONSTRAINT pk_orders_detail PRIMARY KEY (order_id, product_id),
+    CONSTRAINT fk_orders_detail_order FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    CONSTRAINT fk_orders_detail_product FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE RESTRICT
 );
 
 CREATE TABLE IF NOT EXISTS auditory (

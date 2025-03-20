@@ -94,7 +94,7 @@ INSERT INTO orders () values ();
 INSERT INTO orders () values ();
 INSERT INTO orders () values ();
 
-INSERT INTO orders_product (order_id, product_id, quantity) VALUES
+INSERT INTO orders_detail (order_id, product_id, quantity) VALUES
 (1, 3, 2),  
 (2, 10, 3), (2, 14, 1), 
 (3, 5, 1), (3, 17, 2), (3, 8, 3),

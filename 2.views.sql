@@ -65,7 +65,7 @@ SELECT
     user
 FROM orders;
 
-CREATE OR REPLACE VIEW vw_orders_sale AS
+CREATE OR REPLACE VIEW vw_orders_detail AS
 SELECT 
 	o.order_id,
     p.id AS product_id,
@@ -73,7 +73,7 @@ SELECT
     p.price AS unit_price,
     o.quantity,
     o.quantity * p.price AS subtotal
-FROM orders_product AS o
+FROM orders_detail AS o
 INNER JOIN product AS p ON (p.id = o.product_id);
 
     
