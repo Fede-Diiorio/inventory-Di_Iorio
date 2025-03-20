@@ -18,12 +18,12 @@ CREATE TABLE IF NOT EXISTS product (
     CONSTRAINT fk_product_category FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE SET NULL
 );
 
-CREATE TABLE IF NOT EXISTS clients (
+CREATE TABLE IF NOT EXISTS client (
     id INT AUTO_INCREMENT,
     name VARCHAR(100) DEFAULT "Sin Nombre",
     email VARCHAR(70) NOT NULL UNIQUE,
     phone VARCHAR(20) NOT NULL UNIQUE,
-    CONSTRAINT pk_clients PRIMARY KEY (id)
+    CONSTRAINT pk_client PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS sale (
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS sale (
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     client_id INT NOT NULL,
     CONSTRAINT pk_sale PRIMARY KEY (id),
-    CONSTRAINT fk_sale_client FOREIGN KEY (client_id) REFERENCES clients (id) ON DELETE RESTRICT 
+    CONSTRAINT fk_sale_client FOREIGN KEY (client_id) REFERENCES client (id) ON DELETE RESTRICT
 );
 
 CREATE TABLE IF NOT EXISTS sale_detail (
@@ -43,6 +43,22 @@ CREATE TABLE IF NOT EXISTS sale_detail (
     CONSTRAINT fk_sale_detail_product FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE RESTRICT
 );
 
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user VARCHAR(100) NOT NULL,
+    CONSTRAINT pk_order PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS orders_product (
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1 CHECK (quantity >=1 ),
+    CONSTRAINT pk_orders_product PRIMARY KEY (order_id, product_id),
+    CONSTRAINT fk_orders_product_order FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    CONSTRAINT fk_orders_product_product FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE RESTRICT
+);
+
 CREATE TABLE IF NOT EXISTS auditory (
 	id INT AUTO_INCREMENT,
     action_name VARCHAR (10) NOT NULL,
@@ -52,3 +68,4 @@ CREATE TABLE IF NOT EXISTS auditory (
     action_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT pk_auditory PRIMARY KEY (id)
 );
+

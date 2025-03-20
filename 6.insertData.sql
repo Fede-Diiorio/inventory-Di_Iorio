@@ -1,6 +1,6 @@
 USE coder_inventory;
 
-INSERT INTO categories (name) VALUES
+INSERT INTO category (name) VALUES
 ('Electrodomesticos'),
 ('Audio y Sonido'),
 ('Perifericos'),
@@ -17,7 +17,7 @@ INSERT INTO categories (name) VALUES
 ('Cargadores y Energia'),
 ('Consolas y Videojuegos');
 
-INSERT INTO products (name, description, price, stock, category_id) VALUES
+INSERT INTO product (name, description, price, stock, category_id) VALUES
 ('Cafetera Express', 'Cafetera automatica con espumador de leche', 199.99, 10, 1),
 ('Auriculares Bluetooth', 'Auriculares inalambricos con cancelacion de ruido', 89.99, 25, 2),
 ('Teclado Mecanico', 'Teclado mecanico RGB con switches rojos', 79.50, 15, 3),
@@ -44,7 +44,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Lentes de Realidad Virtual', 'Gafas VR compatibles con PC y consolas', 299.99, 5, 15),
 ('Soporte para Monitor', 'Base ajustable para monitor con espacio de almacenamiento', 35.99, 20, 5);
 
-INSERT INTO clients (name, email, phone) VALUES
+INSERT INTO client (name, email, phone) VALUES
 ('Federico Di Iorio', 'fede.diiorio@email.com', '1122334455'),
 ('Maria Gonzalez', 'maria.gonzalez@email.com', '1144556677'),
 ('Carlos Rodriguez', 'carlos.rodriguez@email.com', '1166778899'),
@@ -62,11 +62,11 @@ INSERT INTO clients (name, email, phone) VALUES
 ('Fernando Rios', 'fernando.rios@email.com', '1166557788'),
 ('Carlos Carloni', 'carlosenllamas@email.com', '1222334455');
 
-INSERT INTO sales (client_id) VALUES 
+INSERT INTO sale (client_id) VALUES 
 (1), (2), (3), (4), (5), (6), (7), (8), (9), (10),
 (11), (12), (13), (14), (15), (1), (2), (3), (1), (14);
 
-INSERT INTO sales_detail (sale_id, product_id, quantity) VALUES
+INSERT INTO sale_detail (sale_id, product_id, quantity) VALUES
 (1, 3, 2), (1, 5, 1), (1,  8, 3),
 (2, 1, 1), (2, 7, 2),
 (3, 2, 1), (3, 9, 4), 
@@ -88,6 +88,15 @@ INSERT INTO sales_detail (sale_id, product_id, quantity) VALUES
 (19, 4, 2), (19, 8, 3),
 (20, 3, 2), (20, 9, 1);
 
+INSERT INTO orders () values ();
+INSERT INTO orders () values ();
+INSERT INTO orders () values ();
+INSERT INTO orders () values ();
+INSERT INTO orders () values ();
 
-
-
+INSERT INTO orders_product (order_id, product_id, quantity) VALUES
+(1, 3, 2),  
+(2, 10, 3), (2, 14, 1), 
+(3, 5, 1), (3, 17, 2), (3, 8, 3),
+(4, 21, 1), (4, 22, 2), 
+(5, 9, 2), (5, 18, 1); 

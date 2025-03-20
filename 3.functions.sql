@@ -17,6 +17,10 @@ BEGIN
     RETURN top_client;
 END $$
 
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE FUNCTION fn_get_client_spent(client_id INT) RETURNS DECIMAL(10,2) DETERMINISTIC
 BEGIN
     DECLARE total_spent DECIMAL(10,2);

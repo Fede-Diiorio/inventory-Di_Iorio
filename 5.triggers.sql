@@ -3,15 +3,19 @@ USE coder_inventory;
 DELIMITER $$
 
 CREATE TRIGGER tr_insert_client 
-AFTER INSERT ON coder_inventory.clients
+AFTER INSERT ON coder_inventory.client
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user) 
     VALUES ('INSERT', 'clients', CONCAT('ID de cliente: ', NEW.id), CURRENT_USER());
 END $$
 
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE TRIGGER tr_update_sale
-AFTER UPDATE ON coder_inventory.sales
+AFTER UPDATE ON coder_inventory.sale
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
@@ -20,8 +24,12 @@ BEGIN
         CURRENT_USER());
 END $$
 
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE TRIGGER tr_update_sales_details
-AFTER UPDATE ON coder_inventory.sales_detail
+AFTER UPDATE ON coder_inventory.sale_detail
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
@@ -33,8 +41,12 @@ BEGIN
     CURRENT_USER());
 END $$
 
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE TRIGGER tr_before_delete_sale
-BEFORE DELETE ON coder_inventory.sales
+BEFORE DELETE ON coder_inventory.sale
 FOR EACH ROW
 BEGIN
     -- Guardar todos los detalles de la venta en auditory antes de que se eliminen por el cascade
@@ -46,8 +58,12 @@ BEGIN
     WHERE sale_id = OLD.id;
 END $$
 
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE TRIGGER tr_delete_sale
-AFTER DELETE ON coder_inventory.sales
+AFTER DELETE ON coder_inventory.sale
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
@@ -56,5 +72,15 @@ BEGIN
         CURRENT_USER());
 END $$
 
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER tr_before_insert_order
+BEFORE INSERT ON orders
+FOR EACH ROW
+BEGIN
+    SET NEW.user = CURRENT_USER();
+END$$
 
 DELIMITER ;

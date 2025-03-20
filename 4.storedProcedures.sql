@@ -5,7 +5,7 @@ DELIMITER $$
 CREATE PROCEDURE sp_discount_stock(IN p_quantity INT, IN p_product_id INT)
 BEGIN
  
-    UPDATE products
+    UPDATE product
     SET stock = stock - p_quantity
     WHERE id = p_product_id AND stock >= p_quantity;
 
@@ -15,11 +15,19 @@ BEGIN
     END IF;
 END$$
 
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE PROCEDURE sp_create_sale(IN p_client_id INT, OUT p_sale_id INT)
 BEGIN
-    INSERT INTO sales (client_id) VALUES (p_client_id);
+    INSERT INTO sale (client_id) VALUES (p_client_id);
     SET p_sale_id = LAST_INSERT_ID();
 END$$
+
+DELIMITER ;
+
+DELIMITER $$
 
 CREATE PROCEDURE sp_process_sale(IN p_sale_id INT, IN p_product_id INT, IN p_quantity INT)
 BEGIN
