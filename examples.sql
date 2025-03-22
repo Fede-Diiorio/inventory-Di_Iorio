@@ -12,6 +12,7 @@ SELECT * FROM vw_sale_detail ORDER BY sale_id DESC;
 -- CREACIÓN DE VENTA
 CALL sp_create_sale(1, @saleId); 
 SELECT @saleId;
+CALL sp_process_sale(@saleId, 1, 1);
 CALL sp_process_sale(@saleId, 3, 2); 
 CALL sp_process_sale(@saleId, 5, 1);
 
@@ -27,15 +28,15 @@ SELECT fn_get_client_spent(1);
 SELECT fn_get_top_client();
 
 -- ACTIVACIÓN DE DISPARADORES (las ventas no deberían modificarse y por eso se eligieron crear estos triggers)
-UPDATE sales
+UPDATE sale
 SET client_id = 10, date = NOW()
 WHERE id = 1;
 
-UPDATE sales_detail
+UPDATE sale_detail
 SET product_id = 2, quantity = 4
 WHERE sale_id = 1
 AND product_id = 3;
 
-DELETE FROM sales WHERE id = 2;
+DELETE FROM sale WHERE id = 2;
 
 SELECT * FROM auditory ORDER BY id DESC;

@@ -7,7 +7,7 @@ AFTER INSERT ON coder_inventory.client
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user) 
-    VALUES ('INSERT', 'clients', CONCAT('ID de cliente: ', NEW.id), CURRENT_USER());
+    VALUES ('INSERT', 'client', CONCAT('ID de cliente: ', NEW.id), CURRENT_USER());
 END $$
 
 DELIMITER ;
@@ -19,7 +19,7 @@ AFTER UPDATE ON coder_inventory.sale
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
-    VALUES ('UPDATE', 'sales', 
+    VALUES ('UPDATE', 'sale', 
 		CONCAT('Viejo ID: ', OLD.id, ' - Nuevo ID: ', NEW.id, ' | Vieja fecha: ', OLD.date, ' - Nueva fecha: ', NEW.date, ' | Viejo ID cliente: ', OLD.client_id, ' - Nuevo ID cliente: ', NEW.client_id), 
         CURRENT_USER());
 END $$
@@ -28,12 +28,12 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE TRIGGER tr_update_sales_details
+CREATE TRIGGER tr_update_sale_detail
 AFTER UPDATE ON coder_inventory.sale_detail
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
-    VALUES ('UPDATE', 'sales_detail', 
+    VALUES ('UPDATE', 'sale_detail', 
     CONCAT(
 		'Viejo ID Venta: ', OLD.sale_id, ' - Nuevo ID Venta: ', NEW.sale_id, 
         ' | Viejo ID Producto: ', OLD.product_id, ' - Nuevo ID Producto: ', NEW.product_id, 
@@ -51,10 +51,10 @@ FOR EACH ROW
 BEGIN
     -- Guardar todos los detalles de la venta en auditory antes de que se eliminen por el cascade
     INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
-    SELECT 'DELETE', 'sales_detail',
+    SELECT 'DELETE', 'sale_detail',
         CONCAT('Venta ID: ', sale_id, ' - Producto ID: ', product_id, ' - Cantidad: ', quantity),
         CURRENT_USER()
-    FROM coder_inventory.sales_detail
+    FROM coder_inventory.sale_detail
     WHERE sale_id = OLD.id;
 END $$
 
@@ -67,7 +67,7 @@ AFTER DELETE ON coder_inventory.sale
 FOR EACH ROW
 BEGIN
 	INSERT INTO auditory (action_name, table_name, newfile_oldfile, user)
-    VALUES ('DELETE', 'sales',
+    VALUES ('DELETE', 'sale',
 		CONCAT('ID: ', OLD.id, ' - Fecha: ', OLD.date, ' - ID cliente: ', OLD.client_id),
         CURRENT_USER());
 END $$

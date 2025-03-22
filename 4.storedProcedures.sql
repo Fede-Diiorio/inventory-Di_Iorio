@@ -61,7 +61,7 @@ BEGIN
 
     CALL sp_discount_stock(p_quantity, p_product_id);
 
-    INSERT INTO sales_detail (sale_id, product_id, quantity) 
+    INSERT INTO sale_detail (sale_id, product_id, quantity) 
     VALUES (p_sale_id, p_product_id, p_quantity);
 
     COMMIT;

@@ -8,8 +8,8 @@ BEGIN
     
     SELECT CONCAT(c.id, ' - ', c.name, ' (', COUNT(s.id), ' compras)') 
     INTO top_client
-    FROM clients c
-    JOIN sales s ON c.id = s.client_id
+    FROM client AS c
+    JOIN sale AS s ON c.id = s.client_id
     GROUP BY c.id
     ORDER BY COUNT(s.id) DESC
     LIMIT 1;
@@ -27,9 +27,9 @@ BEGIN
     
     SELECT COALESCE(SUM(p.price * sd.quantity), 0) 
     INTO total_spent
-    FROM sales s
-    JOIN sales_detail sd ON s.id = sd.sale_id
-    JOIN products p ON sd.product_id = p.id
+    FROM sale AS s
+    JOIN sale_detail AS sd ON s.id = sd.sale_id
+    JOIN product AS p ON sd.product_id = p.id
     WHERE s.client_id = client_id;
     
     RETURN total_spent;
